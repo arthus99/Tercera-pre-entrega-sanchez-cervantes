@@ -1,0 +1,18 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block title %} Test {%endblock%}
+{% block link-rel %}<link rel="stylesheet" href="{% static 'css/aboutUs.css' %}"> {% endblock %}
+{% block homePageHeader %}Day Care Center {% endblock %}
+{% block main %}
+
+<form action="{% url 'greetings' %}" method="post">  {% csrf_token %}
+    <!--  <label for="name">Name</label>
+      <input id="name" type="text"
+      placeholder="Enter name" name="name">
+      <br>
+  -->
+      {{form}}
+      <input type="submit" name="submit">
+  </form>    
+
+{% endblock %}

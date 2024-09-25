@@ -1,0 +1,32 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block title %} Contact Us Page {%endblock%}
+{% block link-rel %}<link rel="stylesheet" href="{% static 'css/contactUsPage.css' %}"> {% endblock %}
+{% block homePageHeader %}Day Care Center {% endblock %}
+{% block main %}
+
+<div id="containerContactUs">
+    <table>
+        <tr>
+            <td><label for="name">Name:</label></td>
+            <td>
+                <input id="name" class="fieldStyle" type="text"
+                placeholder="Enter name" name="name">
+            </td>
+        </tr>
+        <tr>
+            <td><label for="email">From:</label></td>
+            <td>
+                <input id="email" class="fieldStyle" type="email"
+                placeholder="Enter email" name="email">
+            </td>
+        </tr>
+    </table>
+    <br>
+    <textarea id="message" name="Text1" cols="100" rows="30"
+    placeholder="Message"></textarea>
+    <input id="submitButtonContactUs" type="submit"
+    name="submit">
+</div>
+
+ {% endblock %}

@@ -1,0 +1,40 @@
+.dogInfoTable{
+    background-color: #ffc266;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+td{
+    padding: 20px;
+}
+.createPageDropDowns{
+    width: 300px;
+    height: 30px;
+    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.containerCreateNewProfile{
+    margin-top: 10px;
+    background-color: white;
+    width: 50%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    position: relative;
+}
+#submitButtonCreateNewProfile{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #ccf2ff;
+    position: absolute;
+    bottom: -25px;
+    right: 0px;
+    width: 100px;
+    height: 50px;
+}
+#submitButtonCreateNewProfile:hover{
+    background-color: orange;
+}

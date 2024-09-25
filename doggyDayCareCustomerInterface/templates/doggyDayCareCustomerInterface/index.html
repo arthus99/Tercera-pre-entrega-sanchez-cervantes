@@ -1,0 +1,17 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block title %} Scrappy-Doo Day Care Center {%endblock%}
+{% block link-rel %} {% endblock %}
+{% block homePageHeader %}Day Care Center {% endblock %}
+{% block main %}
+
+    <div id="homePageDropdownMenu">
+        <label for="dropDown"></label>
+        <select id="dropDown" onchange="window.location.href= this.value">
+            <option selected disabled hidden value=""></option>
+            <option class="optionVal" value="{% url 'aboutUs' %}">About Us</option>
+            <option class="optionVal" value="{% url 'contactUs' %}">Contact Us</option>
+            <option class="optionVal" value="{% url 'newProfile' %}">Create New Profile</option>
+        </select>
+    </div>
+ {% endblock %}

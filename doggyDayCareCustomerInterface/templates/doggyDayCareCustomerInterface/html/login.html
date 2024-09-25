@@ -1,0 +1,45 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block title %} Log in {%endblock%}
+{% block link-rel %}
+<style>
+    td{
+        padding: 50px;
+    }
+</style>
+
+{% endblock %}
+{% block homePageHeader %}Log in Page {% endblock %}
+{% block main %}
+
+<form action="{% url 'customer' %}" method="post">
+    {% csrf_token %}
+    <div id="containerLogIn">
+        <table>
+            <tr>
+                <td><label for="{{ form.username.id_for_label }}">Username:</label></td>
+                <td>
+                    {{ form.username }}
+                </td>
+            </tr>
+            <tr>
+                <td><label for="{{ form.password.id_for_label }}">Password:</label></td>
+                <td>
+                    {{ form.password }}
+                </td>
+            </tr>
+            <tr>
+                <td><input id="submitButtonLogIn" type="submit" name="submit" value="Log In"></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</form>
+
+
+{% endblock %}
+
+
+
+
+

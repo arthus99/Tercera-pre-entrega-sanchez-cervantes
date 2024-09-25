@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+    <script>
+        function Hello(){
+            let x = 5;
+            let word1 = "Hello";
+            if(x<6){
+                let word2 = "Hello World";
+                alert(word2);
+            }
+            alert(word1);
+            alert(word2);
+        }
+        function datatype(){
+            let x = 5;
+            let y = "Hello World";
+            let z = {Name:"Nick",Age:90};
+            let a = ["Toyota","Ford"];
+            alert(typeof(x));
+            alert(typeof(y));
+            alert(typeof(z));
+            alert(typeof(a));
+
+        }
+    </script>
+    
+</head>
+<body>
+    <h1>Demo</h1>
+    <button onclick="Hello()">click me</button>
+    <button onclick="datatype()">test datatype</button>
+</body>
+</html>

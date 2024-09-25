@@ -1,0 +1,137 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block title %} Create New Profile {%endblock%}
+{% block link-rel %}
+    <link rel="stylesheet" href="{% static 'css/createNewProfile.css' %}">
+    <script src="{% static 'js/createNewProfile.js' %}"></script>
+{% endblock %}
+{% block homePageHeader %}Day Care Center {% endblock %}
+{% block main %}
+
+<form onsubmit="createNewProfile()">
+    <div class="containerCreateNewProfile">
+        <table id="createNewProfile">
+            <tr>
+                <td><label for="fName">First Name</label></td>
+                <td><input id="fName" class="fieldStyle" type="text" placeholder="Enter first Name" name="firstName"></td>
+            </tr>
+            <tr>
+                <td><label for="lName">Last Name</label></td>
+                <td><input id="lName" class="fieldStyle" type="text" placeholder="Enter Last Name" name="lastName"></td>
+            </tr>
+            <tr>
+                <td><legend>Gender:</legend></td>
+                <td>
+                    <label for="Male">Male</label> 
+                    <input id="Male" type="radio" name="gender" value="male">
+                </td>
+                <td>
+                    <label for="Female">Female</label>
+                    <input id="Female" type="radio" name="gender" value="female">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="usn">Username</label></td>
+                <td>
+                    <input id="usn" class="fieldStyle" type="text"
+                    placeholder="Enter username" name="username">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="pwd">Password</label></td>
+                <td>
+                    <input id="pwd" name="password"    class="fieldStyle"
+                    type="password" placeholder="Enter Password">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="address"><Address></Address></label></td>
+                <td>
+                    <input id="address" name="address" class="fieldStyle"
+                    type="text" placeholder="Enter Address">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="state">State</label></td>
+                <td>
+                    <select id="state" class="createPageDropDowns">
+                        <option value="california">california</option>
+                        <option value="new york">New York</option>
+                        <option value="texas">Texas</option>
+                    </select>
+                </td>
+            </tr>   
+            <tr>
+                <td><label for="dogNum">Number of dogs</label></td>
+                <td>
+                    <select id="dogNum" class="createPageDropDowns">
+                        <option value="0">0</option>       
+                        <option value="1">1</option>       
+                        <option value="2">2</option>       
+                        <option value="3">More than 2</option>       
+                    </select>
+                </td>
+            </tr>   
+            <tr>
+                <td><label for="montlyFee">Montly Fee : Please select a package</label></td>
+                <td>
+                    <select id="montlyFee" class="createPageDropDowns">
+                        <option value="0">0</option>
+                        <option value="basic">$50/dog : Basic</option>
+                        <option value="silver">$100/dog : Silver</option>
+                        <option value="gold">$150/dog : Gold</option>
+                        <option value="platinum">$200/dog : Platinum</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <table class="dogInfoTable">
+                    <tr>
+                        <th><label for="dog1">Dog Name 1</label></th>
+                        <th><label for="dogAge1">Age</label></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input id="dog1" class="fieldStyle" type="text"
+                            placeholder="Enter Dog's Name" name="dog1">
+                        </td>
+                        <td>
+                            <input id="dogAge1" class="fieldStyle" type="number"
+                            placeholder="Enter Dog's Age" name="dogAge1">
+                        </td>
+                    </tr>
+                </table>
+            </tr>
+            <tr>
+                <table class="dogInfoTable">
+                    <tr>
+                        <th><label for="dog2">Dog Name 2</label></th>
+                        <th><label for="dogAge2">Age</label></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input id="dog2" class="fieldStyle" type="text"
+                            placeholder="Enter Dog's Name" name="dog2">
+                        </td>
+                        <td>
+                            <input id="dogAge2" class="fieldStyle" type="number"
+                            placeholder="Enter Dog's Age" name="dogAge2">
+                        </td>
+                    </tr>
+                </table>
+            </tr>
+            <tr>
+                <td>
+                    <input id="submiButtonCreateNewProfile" 
+                    type="submit"
+                    name="submit">
+                </td>
+            </tr>   
+        </table>
+    </div>
+
+</form>    
+
+
+ {% endblock %}
+

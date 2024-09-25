@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrappy-Doo Day Care Center</title>
+    <link rel="stylesheet" href="{% static 'css/commonCss.css' %}">
+</head>
+<body>
+    <div id = "homePageHeader">
+        <img id="logoPic" src="{% static 'imagenes/picture4.jpg' %}">
+        <h1>Scrappy-Doo Day Care Center</h1>
+    </div>
+
+   
+    <div id="homePageLinks" >
+        <ul>
+            <li><a href="{% url 'logInPage' %}">Log in</a></li>
+        </ul>
+    </div>
+
+     
+    <div id="homePageDropdownMenu">
+        <label for="dropDown"></label>
+        <select id="dropDown" onchange="window.location.href= this.value">
+            <option selected disabled hidden value=""></option>
+            <option class="optionVal" value="{% url 'aboutUs' %}">About Us</option>
+            <option class="optionVal" value="{% url 'contactUs' %}">Contact Us</option>
+            <option class="optionVal" value="{% url 'newProfile' %}">Create New Profile</option>
+        </select>
+    </div>
+  <!--  -->
+</body>
+</html>

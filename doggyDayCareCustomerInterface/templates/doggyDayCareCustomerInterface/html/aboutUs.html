@@ -1,0 +1,17 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block title %} About US {%endblock%}
+{% block link-rel %}<link rel="stylesheet" href="{% static 'css/aboutUs.css' %}"> {% endblock %}
+{% block homePageHeader %}Day Care Center {% endblock %}
+{% block main %}
+
+    <div id="containerLogIn">
+        <p>We are the most reputed Doggy Day Care System where we provide
+            excellent care to your beloved pooch while you are away.</p>
+        </p>    
+        <input class="backButton" type="button"
+        value="Back" onclick="history.back()">
+    </div>
+ {% endblock %}
+
+
