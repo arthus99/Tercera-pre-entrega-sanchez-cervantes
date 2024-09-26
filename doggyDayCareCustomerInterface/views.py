@@ -1,7 +1,15 @@
 from django.shortcuts import render, redirect
-from django.http import HttpRequest
+from django.http import HttpRequest, JsonResponse
 from django import forms
 from .models import customer_information, dog_information
+from .models import dog_information
+from .forms import CustomerInformationForm, DogInformationForm
+
+
+def get_dogs(request):
+    owner_id = request.GET.get("owner_id")
+    dogs = dog_information.objects.filter(owner_id=owner_id).values("id", "name")
+    return JsonResponse(list(dogs), safe=False)
 
 
 class test123_validation(forms.Form):
@@ -44,6 +52,13 @@ def greetings(request):
         )
 
 
+def insert_customer_succeded(request):
+    return render(
+        request,
+        "doggyDayCareCustomerInterface/html/insert_customer_information_succeeded.html",
+    )
+
+
 class logInPage_validation(forms.Form):
     username = forms.CharField(widget=forms.TextInput(attrs={"class": "fieldstyle"}))
     password = forms.CharField(
@@ -84,3 +99,31 @@ def customerProfile(request):
         )  # Proporcionar un formulario vacío para el método GET
 
     return render(request, "doggyDayCareCustomerInterface/login.html", {"form": form})
+
+
+def insert_customer_information(request):
+    if request.method == "POST":
+        form = CustomerInformationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("insert_custumer_succeded")
+    else:
+        form = CustomerInformationForm()
+
+    return render(
+        request,
+        "doggyDayCareCustomerInterface/html/insert_customer_information.html",
+        {"form": form},
+    )
+
+
+def add_dog(request):
+    if request.method == "POST":
+        form = DogInformationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("success_url")  # Cambia 'success_url' a tu URL deseada
+    else:
+        form = DogInformationForm()
+
+    return render(request, "add_dog.html", {"form": form})

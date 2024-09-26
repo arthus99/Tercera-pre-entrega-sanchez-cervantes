@@ -1,0 +1,30 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block title %} Insert Customer Information {%endblock%}
+{% block link-rel %} {% endblock %}
+{% block homePageHeader %}Insertar Cliente {% endblock %}
+{% block main %}
+    <div>
+        <form method="POST" action="{% url 'insert_custumer' %}">
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- Renderiza el formulario -->
+            <input type="submit" value="Insertar">
+        </form>
+    </div>
+ {% endblock %}
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Información del Cliente</title>
+</head>
+<body>
+    
+</body>
+</html>
