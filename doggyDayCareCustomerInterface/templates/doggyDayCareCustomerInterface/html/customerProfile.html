@@ -1,0 +1,21 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block title %} Customer Profile {%endblock%}
+{% block link-rel %}
+<link rel="stylesheet" href="{% static 'css/createNewProfile.css' %}">
+{% endblock %}
+{% block homePageHeader %}Customer Profile {% endblock %}
+{% block main %}
+
+    <div id="containerLogIn">
+        <table class="dogInfoTable">
+            <tr><td>id:</td><td>{{form.customer_id}}</td></tr>
+            <tr><td>FirstName:></td><td>{{form.firstName}}</td></tr>
+            <tr><td>lastName:</td><td>{{form.lastName}}</td></tr>
+            <tr><td>Gender:</td><td>{{form.gender}}</td></tr>
+            <tr><td>Adress:</td><td>{{form.address}}</td></tr>
+            <tr><td>State:</td><td>{{form.state}}</td></tr>
+        </table>
+
+    </div>
+ {% endblock %}

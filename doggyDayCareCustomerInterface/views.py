@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpRequest
 from django import forms
+from .models import customer_information, dog_information
 
 
 class test123_validation(forms.Form):
@@ -56,3 +57,30 @@ def logInPage(request):
         "doggyDayCareCustomerInterface/html/login.html",
         {"form": logInPage_validation()},
     )
+
+
+def customerProfile(request):
+    if request.method == "POST":
+        form = logInPage_validation(request.POST)
+        if form.is_valid():
+            obj1 = form.cleaned_data["username"]
+            obj2 = form.cleaned_data["password"]
+            table_val = customer_information.objects.filter(
+                username=obj1, password=obj2
+            )
+
+            if table_val.exists():
+                row = table_val.first()
+                return render(
+                    request,
+                    "doggyDayCareCustomerInterface/html/customerProfile.html",
+                    {"form": row},
+                )
+            else:
+                return redirect("logInPage")
+    else:
+        form = (
+            logInPage_validation()
+        )  # Proporcionar un formulario vacío para el método GET
+
+    return render(request, "doggyDayCareCustomerInterface/login.html", {"form": form})

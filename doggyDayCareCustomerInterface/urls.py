@@ -9,4 +9,5 @@ urlpatterns = [
     path("NewProfile", views.createNewProfile, name="newProfile"),
     path("test", views.test123, name="test"),
     path("greetings", views.greetings, name="greetings"),
+    path("customer", views.customerProfile, name="customer"),
 ]
