@@ -28,4 +28,4 @@ class DogInformationForm(forms.ModelForm):
         queryset=customer_information.objects.all(), label="Owner"
     )
     name = forms.CharField(max_length=64, label="Dog's name")
-    age = forms.IntegerField(min_value=0, label="Age (in years))")
+    age = forms.IntegerField(min_value=0, label="Age (in years)")

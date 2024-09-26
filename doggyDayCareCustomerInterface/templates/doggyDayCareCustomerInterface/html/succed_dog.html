@@ -1,0 +1,14 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block title %} Add Dog's Successfully {%endblock%}
+{% block link-rel %}<link rel="stylesheet" href="{% static 'css/aboutUs.css' %}"> {% endblock %}
+{% block homePageHeader %}Add Dog's Succefully {% endblock %}
+{% block main %}
+
+    <div id="containerLogIn">
+        <h5>Details for {{ dog.name }}</h5>
+        <p><strong>Owner:</strong> {{ dog.owner.firstName }} {{ dog.owner.lastName }}</p>
+        <p><strong>Age:</strong> {{ dog.age }} years</p>
+        <a href="{% url 'add_dog' %}">Add another dog</a>
+    </div>
+ {% endblock %}

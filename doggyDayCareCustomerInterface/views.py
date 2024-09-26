@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpRequest, JsonResponse
 from django import forms
 from .models import customer_information, dog_information
@@ -121,9 +121,18 @@ def add_dog(request):
     if request.method == "POST":
         form = DogInformationForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect("success_url")  # Cambia 'success_url' a tu URL deseada
+            dog_instance = form.save()
+            return redirect("success_dog", dog_id=dog_instance.id)
     else:
         form = DogInformationForm()
 
-    return render(request, "add_dog.html", {"form": form})
+    return render(
+        request, "doggyDayCareCustomerInterface/html/add_dog.html", {"form": form}
+    )
+
+
+def insert_dog_succeded(request, dog_id):
+    dog = get_object_or_404(dog_information, id=dog_id)
+    return render(
+        request, "doggyDayCareCustomerInterface/html/succed_dog.html", {"dog": dog}
+    )

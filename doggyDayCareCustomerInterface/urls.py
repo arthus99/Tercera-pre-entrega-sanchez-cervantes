@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import get_dogs, insert_customer_information
+from .views import get_dogs, insert_customer_information, add_dog
 
 urlpatterns = [
     path("api/get_dogs/", get_dogs, name="get_dogs"),
@@ -18,4 +18,6 @@ urlpatterns = [
         views.insert_customer_succeded,
         name="insert_custumer_succeded",
     ),
+    path("add-dog", views.add_dog, name="add_dog"),
+    path("success-dog/<int:dog_id>/", views.insert_dog_succeded, name="success_dog"),
 ]

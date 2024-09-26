@@ -22,6 +22,7 @@ class customer_information(models.Model):
 
 
 class dog_information(models.Model):
+    id = models.AutoField(primary_key=True)
     owner = models.ForeignKey(
         customer_information, on_delete=models.CASCADE, related_name="dogs"
     )
