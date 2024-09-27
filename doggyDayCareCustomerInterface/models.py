@@ -30,7 +30,7 @@ class dog_information(models.Model):
     age = models.PositiveIntegerField(default=0)
 
     def __str__(self):
-        return f"{self.name} ({self.age} years old)"
+        return f"{self.owner} :{self.name} ({self.age} years old)"
 
     class Meta:
         verbose_name_plural = "Dog Information"

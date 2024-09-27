@@ -1,15 +1,26 @@
-function updateDogs() {
+document.addEventListener('DOMContentLoaded', function() {
     const ownerSelect = document.getElementById('id_owner');
     const dogSelect = document.getElementById('id_dog');
-
+   
     ownerSelect.addEventListener('change', function() {
         const ownerId = this.value;
-        const dogApiUrl = `/admin/api/get_dogs/?owner_id=${ownerId}`;
-
+        
+        // Asegúrate de que la URL sea correcta
+        const dogApiUrl = `/api/get_dogs/?owner_id=${ownerId}`;
         fetch(dogApiUrl)
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(data => {
                 dogSelect.innerHTML = '';  // Limpia los perros existentes
+                const defaultOption = document.createElement('option');
+                defaultOption.value = '';
+                defaultOption.text = 'Seleccionar perro';
+                dogSelect.add(defaultOption);
+
                 data.forEach(dog => {
                     const option = document.createElement('option');
                     option.value = dog.id;
@@ -19,4 +30,4 @@ function updateDogs() {
             })
             .catch(error => console.error('Error fetching dogs:', error));
     });
-}
+});

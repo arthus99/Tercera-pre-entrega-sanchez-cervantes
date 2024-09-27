@@ -1,0 +1,58 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block title %} Make Appointment {%endblock%}
+{% block link-rel %}
+        <!-- Usa defer para cargar el script -->
+        <script src="{% static 'js/update_dogs.js' %}" defer></script> </script > 
+   
+{% endblock %}
+{% block homePageHeader %}Appointment {% endblock %}
+{% block main %}
+<div id="containerContactUs">
+    <form action="{% url 'create_appointment' %}" method="POST">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td><label for="id_owner">Propietario:</label></td>
+                <td>
+                    <select id="id_owner" name="owner" required>
+                        <option value="">Seleccionar propietario</option>
+                        {% for owner in owners %}
+                            <option value="{{ owner.customer_id }}">{{ owner.firstName }} {{ owner.lastName }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="id_dog">Perro:</label></td>
+                <td>
+                    <select id="id_dog" name="dog" required>
+                        <option value="">Seleccionar perro</option>
+                        <!-- Las opciones de perros se llenarán mediante JavaScript -->
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="date">Fecha de la Cita:</label></td>
+                <td><input type="date" id="date" name="date" required></td>
+            </tr>
+            <tr>
+                <td><label for="purpose">Propósito de la Cita:</label></td>
+                <td>
+                    <textarea id="purpose" name="purpose" required cols="50" rows="15" placeholder="Descripción del propósito"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><button type="submit">Guardar Cita</button></td>
+            </tr>  
+        </table>
+    </form>
+</div>    
+ {% endblock %}
+
+
+
+
+
+

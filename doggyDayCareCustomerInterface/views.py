@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpRequest, JsonResponse
 from django import forms
-from .models import customer_information, dog_information
-from .models import dog_information
+from .models import customer_information, dog_information, appointment_information
 from .forms import CustomerInformationForm, DogInformationForm
 
 
@@ -135,4 +134,34 @@ def insert_dog_succeded(request, dog_id):
     dog = get_object_or_404(dog_information, id=dog_id)
     return render(
         request, "doggyDayCareCustomerInterface/html/succed_dog.html", {"dog": dog}
+    )
+
+
+def create_appointment(request):
+    if request.method == "POST":
+        owner_id = request.POST.get("owner")
+        dog_id = request.POST.get("dog")
+        date = request.POST.get("date")
+        purpose = request.POST.get("purpose")
+
+        # Crear una nueva cita
+        appointment = appointment_information(dog_id=dog_id, date=date, purpose=purpose)
+        appointment.save()  # Guarda la cita en la base de datos
+
+        return redirect("appointment-success")
+    # Si es una solicitud GET, obtener todos los propietarios
+    owners = customer_information.objects.all()
+
+    context = {
+        "owners": owners,
+    }
+    return render(
+        request, "doggyDayCareCustomerInterface/html/create_appointment.html", context
+    )
+
+
+def appointment_success(request):
+    return render(
+        request,
+        "doggyDayCareCustomerInterface/html/appointment-succeeded.html",
     )

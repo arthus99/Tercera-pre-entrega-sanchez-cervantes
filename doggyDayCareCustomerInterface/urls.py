@@ -1,6 +1,12 @@
 from django.urls import path
 from . import views
-from .views import get_dogs, insert_customer_information, add_dog
+from .views import (
+    get_dogs,
+    insert_customer_information,
+    add_dog,
+    create_appointment,
+    appointment_success,
+)
 
 urlpatterns = [
     path("api/get_dogs/", get_dogs, name="get_dogs"),
@@ -20,4 +26,6 @@ urlpatterns = [
     ),
     path("add-dog", views.add_dog, name="add_dog"),
     path("success-dog/<int:dog_id>/", views.insert_dog_succeded, name="success_dog"),
+    path("create-appointment/", views.create_appointment, name="create_appointment"),
+    path("appointment-success/", views.appointment_success, name="appointment-success"),
 ]
