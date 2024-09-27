@@ -165,3 +165,20 @@ def appointment_success(request):
         request,
         "doggyDayCareCustomerInterface/html/appointment-succeeded.html",
     )
+
+
+def find_dog_form(request):
+
+    return render(request, "doggyDayCareCustomerInterface/html/find_dog.html")
+
+
+def dog_finder(request):
+    dog = request.GET["dog"]
+
+    dogs = dog_information.objects.filter(name__icontains=dog)
+
+    return render(
+        request,
+        "doggyDayCareCustomerInterface/html/dogFinder_success.html",
+        {"dogs": dogs},
+    )

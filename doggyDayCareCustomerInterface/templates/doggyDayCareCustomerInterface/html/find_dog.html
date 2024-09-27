@@ -1,0 +1,17 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block title %} Dogs Finder {%endblock%}
+{% block link-rel %}<link rel="stylesheet" href="{% static 'css/aboutUs.css' %}"> {% endblock %}
+{% block homePageHeader %}Find a Dog {% endblock %}
+{% block main %}
+
+    <form action="{% url 'dogFinder' %}" method="get">
+
+        <p>Dog's name: <input type="text" name="dog"></p>
+
+        <button type="submit">Find</button>
+
+    </form>
+
+
+ {% endblock %}

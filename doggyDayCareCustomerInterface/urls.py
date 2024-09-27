@@ -28,4 +28,6 @@ urlpatterns = [
     path("success-dog/<int:dog_id>/", views.insert_dog_succeded, name="success_dog"),
     path("create-appointment/", views.create_appointment, name="create_appointment"),
     path("appointment-success/", views.appointment_success, name="appointment-success"),
+    path("find-dog/", views.find_dog_form, name="findDogform"),
+    path("dog-finder/", views.dog_finder, name="dogFinder"),
 ]

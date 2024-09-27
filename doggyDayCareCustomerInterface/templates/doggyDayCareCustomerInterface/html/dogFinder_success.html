@@ -1,0 +1,24 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block title %} Find succeed {%endblock%}
+{% block link-rel %}<link rel="stylesheet" href="{% static 'css/aboutUs.css' %}"> {% endblock %}
+{% block homePageHeader %}successful search {% endblock %}
+{% block main %}
+
+    <div id="container" class="containerContactUs">
+        {% if dogs %}
+        <table>
+            {% for dog in dogs %}
+            <tr>
+                <td>
+                   <h3>{{dog.name}} - {{dog.owner}}</h3>  
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+            <p>We could not find a dog with that name</p>          
+        {% endif %}
+
+    </div>
+ {% endblock %}

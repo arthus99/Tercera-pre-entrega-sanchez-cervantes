@@ -9,14 +9,10 @@
         <label for="dropDown"></label>
         <select id="dropDown" onchange="window.location.href= this.value">
             <option selected disabled hidden value=""></option>
-            <option class="optionVal" value="{% url 'aboutUs' %}">About Us</option>
-            <option class="optionVal" value="{% url 'contactUs' %}">Contact Us</option>
-            <option class="optionVal" value="{% url 'newProfile' %}">Create New Profile</option>
             <option class="optionVal" value="{% url 'insert_custumer' %}">Insert a Customer</option>
             <option class="optionVal" value="{% url 'add_dog' %}">Add a Dog</option>
             <option class="optionVal" value="{% url 'create_appointment' %}">Create an Appointment</option>
-            
-
+            <option class="optionVal" value="{% url 'findDogform' %}">Find a Dog</option>
         </select>
     </div>
  {% endblock %}
